@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Di Propósito no Itaim Paulista: Espeto Bar com música ao vivo, espetinhos na brasa e reservas de aniversário, e Adega com delivery rápido de bebidas geladas e destilados.">
+  <meta name="keywords" content="Di Propósito, Espeto Bar, Adega Di Propósito, Itaim Paulista, Espetinho, Música ao vivo, Delivery de Bebidas, São Paulo, Gastrobar, Reservas">
+  <meta name="author" content="Morales Soluções">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://diproposito.com.br/">
+  <meta property="og:title" content="Di Propósito — Espeto Bar & Adega">
+  <meta property="og:description" content="Onde a resenha começa e o sabor não acaba. Espetos na brasa, música ao vivo e delivery de bebidas geladas no Itaim Paulista.">
+  <meta property="og:image" content="img/hero-bg.png">
+
+  <title>Di Propósito — Espeto Bar & Adega</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. HEADER / NAVIGATION -->
+  <header id="main-header">
+    <div class="container header-container">
+      <a href="#home" class="logo" id="header-logo-link">
+        <!-- Utilizando a logo da Adega Di Propósito convertida em PNG -->
+        <img src="img/logo.png" alt="Logomarca Di Propósito" id="header-logo">
+      </a>
+      
+      <!-- Menu de Navegação Desktop -->
+      <nav class="nav-menu" id="desktop-nav">
+        <a href="#home" class="nav-link active">Início</a>
+        <a href="#sobre" class="nav-link">Sobre</a>
+        <a href="#cardapio" class="nav-link">Cardápio</a>
+        <a href="#delivery" class="nav-link">Delivery</a>
+        <a href="#ambiente" class="nav-link">Ambiente</a>
+        <a href="#eventos" class="nav-link">Eventos</a>
+        <a href="#aniversarios" class="nav-link">Aniversários</a>
+        <a href="#contato" class="nav-link">Localização</a>
+      </nav>
+      
+      <div class="header-cta">
+        <a href="https://wa.me/5511968662940?text=Olá!%20Gostaria%20de%20fazer%20uma%20reserva%20de%20mesa%20no%20Di%20Propósito%20Espeto%20Bar." 
+           target="_blank" 
+           class="btn btn-gold" 
+           id="header-btn-reserva">
+          Reservar Mesa
+        </a>
+      </div>
+      
+      <!-- Botão Hamburger Mobile -->
+      <button class="hamburger" id="menu-toggle" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Menu Responsivo Mobile (Drawer) -->
+  <nav class="mobile-menu" id="mobile-drawer">
+    <a href="#home" class="nav-link">Início</a>
+    <a href="#sobre" class="nav-link">Sobre</a>
+    <a href="#cardapio" class="nav-link">Cardápio</a>
+    <a href="#delivery" class="nav-link">Delivery</a>
+    <a href="#ambiente" class="nav-link">Ambiente</a>
+    <a href="#eventos" class="nav-link">Eventos</a>
+    <a href="#aniversarios" class="nav-link">Aniversários</a>
+    <a href="#contato" class="nav-link">Localização</a>
+    <a href="https://wa.me/5511968662940?text=Olá!%20Gostaria%20de%20fazer%20uma%20reserva%20de%20mesa%20no%20Di%20Propósito%20Espeto%20Bar." 
+       target="_blank" 
+       class="btn btn-whatsapp" 
+       id="mobile-btn-reserva">
+      <i class="fab fa-whatsapp"></i> Reservar Mesa
+    </a>
+  </nav>
+  
+  <!-- Overlay para fechar o menu mobile ao clicar fora -->
+  <div class="overlay" id="menu-overlay"></div>
+
+  <!-- 2. HERO SECTION -->
+  <section id="home">
+    <div class="hero-background">
+      <!-- Imagem de fundo atmosférica com respiro e foco no centro -->
+      <img src="img/hero-bg.png" alt="Ambiente do Espeto Bar Di Propósito">
+    </div>
+    
+    <div class="hero-content">
+      <div class="hero-logo-box">
+        <!-- Logo em destaque no Hero -->
+        <img src="img/logo.png" alt="Di Propósito Logo Principal">
+      </div>
+      
+      <h1 class="hero-title reveal delay-1">Onde a resenha começa e o sabor não acaba.</h1>
+      <p class="hero-subtitle reveal delay-2">
+        Espetinhos na brasa, drinks gelados, música ao vivo e delivery de bebidas no coração do Itaim Paulista.
+      </p>
+      
+      <div class="hero-buttons reveal delay-3">
+        <a href="https://wa.me/5511968662940?text=Olá!%20Gostaria%20de%20fazer%20uma%20reserva%20de%20mesa%20no%20Di%20Propósito%20Espeto%20Bar." 
+           target="_blank" 
+           class="btn btn-primary" 
+           id="hero-btn-reserva">
+          <i class="fa-solid fa-calendar-check"></i> Reservar Mesa
+        </a>
+        <a href="https://wa.me/5511968662940?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20pelo%20delivery%20da%20Adega%20Di%20Propósito." 
+           target="_blank" 
+           class="btn btn-secondary" 
+           id="hero-btn-delivery">
+          <i class="fa-solid fa-motorcycle"></i> Pedir Delivery
+        </a>
+      </div>
+      
+      <!-- Selos / Destaques Rápidos -->
+      <div class="hero-badges reveal delay-4">
+        <div class="badge-item">
+          <i class="fa-solid fa-music"></i>
+          <span>Shows ao vivo</span>
+        </div>
+        <div class="badge-item">
+          <i class="fa-solid fa-fire-burner"></i>
+          <span>Espetos na Brasa</span>
+        </div>
+        <div class="badge-item">
+          <i class="fa-solid fa-wine-bottle"></i>
+          <span>Adega & Delivery</span>
+        </div>
+        <div class="badge-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Itaim Paulista</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="scroll-indicator" id="scroll-to-about">
+      <span>Rolar</span>
+    </div>
+  </section>
+
+  <!-- 3. SOBRE O DI PROPÓSITO -->
+  <section id="sobre" class="section-padding">
+    <div class="container">
+      <div class="sobre-grid">
+        
+        <div class="sobre-content reveal">
+          <span class="section-subtitle">Nossa Essência</span>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">Duas Frentes, Um Só Di Propósito.</h2>
+          <h3 class="sobre-intro-title">O ponto de encontro ideal para quem valoriza a verdadeira resenha.</h3>
+          <p class="sobre-text">
+            O <strong>Di Propósito</strong> nasceu para ser o ponto de encontro de quem gosta de boa comida, bebida gelada e uma resenha de verdade. No <strong>Espeto Bar</strong>, você encontra espetinhos suculentos na brasa, pratos especiais, drinks autorais e a melhor música ao vivo da região.
+          </p>
+          <p class="sobre-text">
+            Se a sua ideia é curtir em casa, a <strong>Adega Di Propósito</strong> leva o nosso padrão de qualidade até você por meio de um delivery rápido de bebidas trincando, destilados premium, combos e acessórios para sua sessão.
+          </p>
+          
+          <div class="sobre-cta-box">
+            <a href="https://wa.me/5511968662940?text=Olá!%20Gostaria%20de%20fazer%20uma%20reserva%20de%20mesa%20no%20Di%20Propósito%20Espeto%20Bar." 
+               target="_blank" 
+               class="btn btn-primary" 
+               id="sobre-btn-reserva">
+              Reservar Mesa
+            </a>
+            <a href="https://wa.me/5511968662940?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20pelo%20delivery%20da%20Adega%20Di%20Propósito." 
+               target="_blank" 
+               class="btn btn-secondary" 
+               id="sobre-btn-delivery">
+              Pedir Delivery
+            </a>
+          </div>
+        </div>
+        
+        <!-- Cards de Diferenciais -->
+        <div class="diferenciais-grid reveal delay-1">
+          <div class="diferencial-card">
+            <div class="diferencial-icon">
+              <i class="fa-solid fa-fire"></i>
+            </div>
+            <h4 class="diferencial-title">Espetos na Brasa</h4>
+            <p class="diferencial-desc">Opções clássicas e gourmets grelhadas na hora com o autêntico sabor do churrasco.</p>
+          </div>
+          
+          <div class="diferencial-card">
+            <div class="diferencial-icon">
+              <i class="fa-solid fa-guitar"></i>
+            </div>
+            <h4 class="diferencial-title">Música ao Vivo</h4>
+            <p class="diferencial-desc">Programação especial com artistas locais trazendo o melhor do sertanejo e pagode.</p>
+          </div>
+          
+          <div class="diferencial-card">
+            <div class="diferencial-icon">
+              <i class="fa-solid fa-glass-water"></i>
+            </div>
+            <h4 class="diferencial-title">Bebidas Trincando</h4>
+            <p class="diferencial-desc">Cervejas e chopp gelados no ponto ideal para acompanhar a sua noite.</p>
+          </div>
+          
+          <div class="diferencial-card">
+            <div class="diferencial-icon">
+              <i class="fa-solid fa-cake-candles"></i>
+            </div>
+            <h4 class="diferencial-title">Aniversários</h4>
+            <p class="diferencial-desc">Ambiente e condições exclusivas para você celebrar os melhores momentos com amigos.</p>
+          </div>
+          
+          <div class="diferencial-card" style="grid-column: span 1; width: 100%;">
+            <div class="diferencial-icon">
+              <i class="fa-solid fa-truck"></i>
+            </div>
+            <h4 class="diferencial-title">Delivery pela Adega</h4>
+            <p class="diferencial-desc">Combos, destilados e bebidas geladas entregues com agilidade no Itaim Paulista.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. DESTAQUES DO CARDÁPIO -->
+  <section id="cardapio" class="section-padding">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Seleção Gourmet</span>
+        <h2 class="section-title">Destaques do Cardápio</h2>
+      </div>
+      
+      <div class="cardapio-grid reveal delay-1">
+        
+        <!-- Item 1: Espetinhos -->
+        <div class="cardapio-item">
+          <div class="cardapio-img-box">
+            <span class="cardapio-badge">Mais Pedido</span>
+            <!-- Imagem realística placeholder do espetinho gerada pela IA -->
+            <img src="img/espeto.png" alt="Espetinhos na Brasa Di Propósito">
+          </div>
+          <div class="cardapio-info">
+            <h3 class="cardapio-title">Espetinhos na Brasa</h3>
+            <p class="cardapio-desc">Grelhados com perfeição na churrasqueira a carvão. Opções de carne, queijo coalho, medalhão, frango e mais.</p>
+          </div>
+        </div>
+        
+        <!-- Item 2: Picanha -->
+        <div class="cardapio-item">
+          <div class="cardapio-img-box">
+            <span class="cardapio-badge">Especialidade</span>
+            <img src="img/hero-bg.png" alt="Picanha Especial Di Propósito">
+          </div>
+          <div class="cardapio-info">
+            <h3 class="cardapio-title">Picanha Nobre</h3>
+            <p class="cardapio-desc">Acompanhada de batata frita rústica, farofa da casa temperada, vinagrete fresco e pão de alho crocante.</p>
+          </div>
+        </div>
+        
+        <!-- Item 3: Salmão -->
+        <div class="cardapio-item">
+          <div class="cardapio-img-box">
+            <img src="img/ambiente.png" alt="Salmão Grelhado Di Propósito">
+          </div>
+          <div class="cardapio-info">
+            <h3 class="cardapio-title">Salmão Grelhado</h3>
+            <p class="cardapio-desc">Filé de salmão servido com purê cremoso de batatas, legumes da estação grelhados e batatas rústicas douradas.</p>
+          </div>
+        </div>
+        
+        <!-- Item 4: Caipirinhas -->
+        <div class="cardapio-item">
+          <div class="cardapio-img-box">
+            <span class="cardapio-badge">Refrescante</span>
+            <img src="img/drink.png" alt="Drinks e Caipirinhas Di Propósito">
+          </div>
+          <div class="cardapio-info">
+            <h3 class="cardapio-title">Drinks & Caipirinhas</h3>
+            <p class="cardapio-desc">Receitas exclusivas e clássicas com frutas frescas da época, destilados premium e gelo cristalino.</p>
+          </div>
+        </div>
+        
+        <!-- Item 5: Cervejas -->
+        <div class="cardapio-item">
+          <div class="cardapio-img-box">
+            <img src="img/adega-combo.png" alt="Cervejas Geladas Di Propósito">
+          </div>
+          <div class="cardapio-info">
+            <h3 class="cardapio-title">Cervejas Geladas</h3>
+            <p class="cardapio-desc">Rótulos nacionais e importados mantidos em temperatura ideal (trincando) para refrescar sua resenha.</p>
+          </div>
+        </div>
+        
+        <!-- Item 6: Destilados -->
+        <div class="cardapio-item">
+          <div class="cardapio-img-box">
+            <span class="cardapio-badge">Premium</span>
+            <img src="img/adega-combo.png" alt="Destilados Premium Di Propósito">
+          </div>
+          <div class="cardapio-info">
+            <h3 class="cardapio-title">Destilados Premium</h3>
+            <p class="cardapio-desc">Doses ou garrafas de whisky, gin, vodka e licores selecionados das melhores marcas mundiais.</p>
+          </div>
+        </div>
+        
+        <!-- Item 7: Sobremesas -->
+        <div class="cardapio-item">
+          <div class="cardapio-img-box">
+            <img src="img/ambiente.png" alt="Sobremesas Di Propósito">
+          </div>
+          <div class="cardapio-info">
+            <h3 class="cardapio-title">Pudim & Petit Gateau</h3>
+            <p class="cardapio-desc">Para fechar com chave de ouro: pudim de leite condensado super cremoso ou petit gateau com sorvete de creme.</p>
+          </div>
+        </div>
+        
+        <!-- Placeholder para novos itens futuros do Cardápio -->
+        <div class="cardapio-item" style="border: 1px dashed rgba(201, 168, 76, 0.25); background: transparent;">
+          <div class="cardapio-info" style="justify-content: center; align-items: center; text-align: center; min-height: 300px;">
+            <i class="fa-solid fa-circle-plus" style="font-size: 2.5rem; color: rgba(201, 168, 76, 0.4); margin-bottom: 1rem;"></i>
+            <h3 class="cardapio-title" style="color: var(--text-muted);">Mais Novidades</h3>
+            <p class="cardapio-desc" style="color: rgba(164, 178, 172, 0.6);">Novos pratos e espetos especiais serão adicionados em breve pelo estabelecimento.</p>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="cardapio-footer reveal">
+        <p>Consulte todos os sabores, acompanhamentos e opções disponíveis no WhatsApp.</p>
+        <a href="https://wa.me/5511968662940?text=Olá!%20Gostaria%20de%20ver%20o%20cardápio%20do%20Di%20Propósito." 
+           target="_blank" 
+           class="btn btn-whatsapp" 
+           id="cardapio-btn-whats">
+          <i class="fab fa-whatsapp"></i> Ver Cardápio pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. DELIVERY PELA ADEGA -->
+  <section id="delivery" class="section-padding">
+    <div class="container">
+      <div class="delivery-grid">
+        
+        <div class="delivery-content reveal">
+          <span class="adega-title-highlight">Adega Di Propósito</span>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">Sua Bebida Gelada Sem Sair de Casa</h2>
+          <p class="delivery-text">
+            Vai curtir em casa, reunir a galera na resenha particular ou simplesmente acabou a bebida? A <strong>Adega Di Propósito</strong> resolve! Contamos com um serviço especializado de delivery focado na rapidez, levando as marcas líderes geladas, destilados finos, gelo e carvão direto à sua porta.
+          </p>
+          
+          <div class="delivery-features">
+            <div class="del-feat-item">
+              <i class="fa-solid fa-snowflake"></i>
+              <span>Bebidas Geladas</span>
+            </div>
+            <div class="del-feat-item">
+              <i class="fa-solid fa-champagne-glasses"></i>
+              <span>Destilados</span>
+            </div>
+            <div class="del-feat-item">
+              <i class="fa-solid fa-cubes"></i>
+              <span>Combos Prontos</span>
+            </div>
+            <div class="del-feat-item">
+              <i class="fa-solid fa-bong"></i>
+              <span>Narguilé & Acessórios</span>
+            </div>
+            <div class="del-feat-item">
+              <i class="fa-solid fa-bolt"></i>
+              <span>Entrega na Região</span>
+            </div>
+            <div class="del-feat-item">
+              <i class="fa-solid fa-cart-flatbed-suitcases"></i>
+              <span>Produtos Premium</span>
+            </div>
+          </div>
+          
+          <a href="https://wa.me/5511968662940?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20pelo%20delivery%20da%20Adega%20Di%20Propósito." 
+             target="_blank" 
+             class="btn btn-whatsapp" 
+             id="delivery-btn-whats">
+            <i class="fab fa-whatsapp"></i> Pedir Delivery pelo WhatsApp
+          </a>
+        </div>
+        
+        <div class="delivery-img-wrapper reveal delay-1">
+          <div class="delivery-img-frame">
+            <!-- Imagem representativa do combo de bebidas -->
+            <img src="img/adega-combo.png" alt="Produtos da Adega Di Propósito">
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. AMBIENTE E EXPERIÊNCIA -->
+  <section id="ambiente" class="section-padding">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Sinta o Clima</span>
+        <h2 class="section-title">Um ambiente feito para bons momentos</h2>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 1rem auto 0; font-weight: 300;">
+          Luz baixa, música boa, mesa cheia e aquela energia de resenha que combina com qualquer ocasião.
+        </p>
+      </div>
+      
+      <!-- Slider de Imagens Interativo (Placeholder) -->
+      <div class="slider-container reveal delay-1">
+        <div class="slider-wrapper" id="slider">
+          
+          <div class="slide">
+            <img src="img/ambiente.png" alt="Amigos no Espeto Bar Di Propósito">
+            <div class="slide-caption">
+              <h4>Nossa Resenha</h4>
+              <p>Mesa cheia e ambiente acolhedor para reunir quem você mais gosta.</p>
+            </div>
+          </div>
+          
+          <div class="slide">
+            <img src="img/music.png" alt="Shows e eventos musicais">
+            <div class="slide-caption">
+              <h4>Música ao Vivo</h4>
+              <p>Os melhores artistas da região trazendo muita energia para o palco.</p>
+            </div>
+          </div>
+          
+          <div class="slide">
+            <img src="img/espeto.png" alt="Espetinho premium na churrasqueira">
+            <div class="slide-caption">
+              <h4>Churrasco no Ponto</h4>
+              <p>Ingredientes selecionados preparados com o carinho e qualidade da brasa.</p>
+            </div>
+          </div>
+          
+          <div class="slide">
+            <img src="img/drink.png" alt="Drinks especiais e coquetéis">
+            <div class="slide-caption">
+              <h4>Drinks Clássicos</h4>
+              <p>Coquetéis elaborados por nossos bartenders para brindar seus momentos.</p>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- Setas de Navegação -->
+        <button class="slider-arrow slider-arrow-prev" id="prev-slide" aria-label="Slide anterior">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="slider-arrow slider-arrow-next" id="next-slide" aria-label="Próximo slide">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+      
+      <!-- Dots Indicadores -->
+      <div class="slider-dots" id="slider-dots-container">
+        <!-- Gerados via JavaScript -->
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- 7. EVENTOS E SHOWS -->
+  <section id="eventos" class="section-padding">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Programação</span>
+        <h2 class="section-title">Sempre tem algo acontecendo por aqui</h2>
+      </div>
+      
+      <p class="eventos-text reveal">
+        Pagode, sertanejo, transmissões de jogos de futebol, festas temáticas e noites especiais fazem parte da programação semanal do Di Propósito.
+      </p>
+      
+      <div class="eventos-grid reveal delay-1">
+        
+        <div class="evento-card">
+          <div class="evento-icon">
+            <i class="fa-solid fa-guitar"></i>
+          </div>
+          <h4 class="evento-name">Shows ao Vivo</h4>
+        </div>
+        
+        <div class="evento-card">
+          <div class="evento-icon">
+            <i class="fa-solid fa-drum"></i>
+          </div>
+          <h4 class="evento-name">Pagode</h4>
+        </div>
+        
+        <div class="evento-card">
+          <div class="evento-icon">
+            <i class="fa-solid fa-radio"></i>
+          </div>
+          <h4 class="evento-name">Sertanejo</h4>
+        </div>
+        
+        <div class="evento-card">
+          <div class="evento-icon">
+            <i class="fa-solid fa-soccer-ball"></i>
+          </div>
+          <h4 class="evento-name">Transmissão de Jogos</h4>
+        </div>
+        
+        <div class="evento-card">
+          <div class="evento-icon">
+            <i class="fa-solid fa-masks-theater"></i>
+          </div>
+          <h4 class="evento-name">Festas Temáticas</h4>
+        </div>
+        
+      </div>
+      
+      <div class="eventos-cta reveal">
+        <a href="https://instagram.com/diproposito.espetobar" 
+           target="_blank" 
+           class="btn btn-gold" 
+           id="eventos-btn-insta">
+          <i class="fab fa-instagram"></i> Acompanhar Programação no Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. ANIVERSÁRIOS E RESERVAS -->
+  <section id="aniversarios" class="section-padding">
+    <div class="container">
+      <div class="aniv-box reveal">
+        <span class="section-subtitle">Celebre Conosco</span>
+        <h2 class="aniv-title">Comemore seu Aniversário no Di Propósito</h2>
+        <p class="aniv-text">
+          Quer fazer uma festa inesquecível, reunir o pessoal da firma ou celebrar com a família? Reserve sua mesa e tenha uma estrutura completa com atendimento diferenciado, espetinhos de primeira, chopp gelado e o melhor som ao vivo.
+        </p>
+        
+        <div class="aniv-benefits">
+          
+          <div class="aniv-benefit-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <h5>Mesas Reservadas</h5>
+              <p>Garantia de espaço confortável e posicionado na melhor área do bar para o seu grupo.</p>
+            </div>
+          </div>
+          
+          <div class="aniv-benefit-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <h5>Convite Personalizado</h5>
+              <p>Enviamos artes personalizadas digitais para você enviar direto nos grupos de WhatsApp dos convidados.</p>
+            </div>
+          </div>
+          
+          <div class="aniv-benefit-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <h5>Ambiente para Grupos</h5>
+              <p>Perfeito para reuniões de grandes turmas, confraternizações e comemorações informais.</p>
+            </div>
+          </div>
+          
+          <div class="aniv-benefit-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <h5>Estrutura Dedicada</h5>
+              <p>Equipe preparada para atender grandes demandas de pedidos de forma ágil e correta.</p>
+            </div>
+          </div>
+          
+        </div>
+        
+        <a href="https://wa.me/5511968662940?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20comemoração%20de%20aniversário%20e%20reservas%20para%20grupos%20no%20Di%20Propósito." 
+           target="_blank" 
+           class="btn btn-whatsapp" 
+           id="aniversarios-btn-whats">
+          <i class="fab fa-whatsapp"></i> Solicitar Reserva pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. GALERIA / INSTAGRAM FEED -->
+  <section id="galeria" class="section-padding">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Momento Resenha</span>
+        <h2 class="section-title">Acompanhe no Instagram</h2>
+      </div>
+      
+      <p class="insta-text reveal">
+        Acompanhe os melhores momentos, registros de shows e as novidades diárias nos nossos perfis oficiais.
+      </p>
+      
+      <div class="insta-grid reveal delay-1">
+        
+        <div class="insta-item">
+          <img src="img/ambiente.png" alt="Feed Di Propósito 1">
+          <div class="insta-overlay">
+            <i class="fab fa-instagram"></i>
+            <span>Ver Post</span>
+          </div>
+        </div>
+        
+        <div class="insta-item">
+          <img src="img/espeto.png" alt="Feed Di Propósito 2">
+          <div class="insta-overlay">
+            <i class="fab fa-instagram"></i>
+            <span>Ver Post</span>
+          </div>
+        </div>
+        
+        <div class="insta-item">
+          <img src="img/drink.png" alt="Feed Di Propósito 3">
+          <div class="insta-overlay">
+            <i class="fab fa-instagram"></i>
+            <span>Ver Post</span>
+          </div>
+        </div>
+        
+        <div class="insta-item">
+          <img src="img/adega-combo.png" alt="Feed Di Propósito 4">
+          <div class="insta-overlay">
+            <i class="fab fa-instagram"></i>
+            <span>Ver Post</span>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="insta-cta-buttons reveal">
+        <a href="https://instagram.com/diproposito.espetobar" 
+           target="_blank" 
+           class="btn btn-secondary" 
+           id="insta-btn-espeto">
+          <i class="fab fa-instagram"></i> Instagram Espetobar
+        </a>
+        <a href="https://instagram.com/adegadiproposito" 
+           target="_blank" 
+           class="btn btn-secondary" 
+           id="insta-btn-adega">
+          <i class="fab fa-instagram"></i> Instagram Adega
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. LOCALIZAÇÃO E CONTATO -->
+  <section id="contato" class="section-padding">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Onde Estamos</span>
+        <h2 class="section-title">Estamos no Itaim Paulista</h2>
+      </div>
+      
+      <div class="contato-grid">
+        
+        <div class="contato-info reveal">
+          <p class="contato-desc">
+            Venha nos visitar presencialmente para curtir nossa grelha e som ao vivo, ou compre na adega que fica na mesma rua, a poucos metros de distância.
+          </p>
+          
+          <div class="enderecos-box">
+            
+            <div class="endereco-item">
+              <div class="endereco-icon">
+                <i class="fa-solid fa-store"></i>
+              </div>
+              <div class="endereco-details">
+                <h4>Di Propósito Espeto Bar</h4>
+                <p>Rua Antônio João de Medeiros, 643 — Itaim Paulista, São Paulo/SP</p>
+                <a href="https://maps.google.com/?q=Rua+Antônio+João+de+Medeiros,+643+Itaim+Paulista+São+Paulo" 
+                   target="_blank" 
+                   class="btn btn-gold btn-sm"
+                   style="padding: 0.5rem 1rem; font-size: 0.75rem;">
+                  Como Chegar <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div class="endereco-item">
+              <div class="endereco-icon">
+                <i class="fa-solid fa-wine-bottle"></i>
+              </div>
+              <div class="endereco-details">
+                <h4>Adega Di Propósito</h4>
+                <p>Rua Antônio João de Medeiros, 635 — Itaim Paulista, São Paulo/SP</p>
+                <a href="https://maps.google.com/?q=Rua+Antônio+João+de+Medeiros,+635+Itaim+Paulista+São+Paulo" 
+                   target="_blank" 
+                   class="btn btn-gold btn-sm"
+                   style="padding: 0.5rem 1rem; font-size: 0.75rem;">
+                  Como Chegar <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+                </a>
+              </div>
+            </div>
+            
+          </div>
+          
+          <!-- Horário de funcionamento pendente e contatos -->
+          <div class="contato-extras">
+            <div class="extra-item">
+              <i class="fa-solid fa-clock"></i>
+              <span><strong>Funcionamento:</strong> consulte a programação e horários pelo WhatsApp</span>
+            </div>
+            <div class="extra-item">
+              <i class="fa-solid fa-phone"></i>
+              <span><strong>WhatsApp Central:</strong> <a href="https://wa.me/5511968662940" target="_blank">+55 (11) 96866-2940</a></span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Mapa Visual Placeholder -->
+        <div class="mapa-container reveal delay-1">
+          <div class="map-placeholder">
+            <div class="map-placeholder-icon">
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+            <h4>Ver Mapa de Acesso</h4>
+            <p>Clique abaixo para abrir a localização exata das nossas frentes no Google Maps do seu celular.</p>
+            <a href="https://maps.google.com/?q=Rua+Antônio+João+de+Medeiros,+643+Itaim+Paulista+São+Paulo" 
+               target="_blank" 
+               class="btn btn-gold" 
+               id="maps-btn-central">
+              <i class="fa-solid fa-route"></i> Traçar Rota no Maps
+            </a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Coluna 1: Sobre a Marca -->
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="img/logo.png" alt="Logomarca Di Propósito">
+          </div>
+          <p class="footer-brand-desc">
+            Duas frentes dedicadas a trazer o melhor do sabor e entretenimento para o Itaim Paulista. Espeto Bar presencial e Adega Delivery.
+          </p>
+          <div class="footer-socials">
+            <a href="https://instagram.com/diproposito.espetobar" target="_blank" class="social-icon" aria-label="Instagram Espeto Bar">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://instagram.com/adegadiproposito" target="_blank" class="social-icon" aria-label="Instagram Adega">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/5511968662940" target="_blank" class="social-icon" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Coluna 2: Links Rápidos -->
+        <div class="footer-nav">
+          <h4 class="footer-title">Links Úteis</h4>
+          <div class="footer-links">
+            <a href="#home">Início</a>
+            <a href="#sobre">Sobre Nós</a>
+            <a href="#cardapio">Nosso Cardápio</a>
+            <a href="#delivery">Adega & Delivery</a>
+            <a href="#ambiente">Ambiente</a>
+            <a href="#eventos">Eventos</a>
+            <a href="#aniversarios">Aniversários</a>
+            <a href="#contato">Localização</a>
+          </div>
+        </div>
+        
+        <!-- Coluna 3: Contatos Rápidos -->
+        <div class="footer-contact">
+          <h4 class="footer-title">Contatos</h4>
+          <div class="footer-contact-info">
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>R. Antônio João de Medeiros, 643/635<br>Itaim Paulista, São Paulo - SP</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+55 (11) 96866-2940</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>contato@diproposito.com.br</span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- Linha final de copyright -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 Di Propósito. Todos os direitos reservados.</p>
+        <p class="footer-credits">Desenvolvido por <a href="#" target="_blank">Morales Soluções</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
