@@ -92,6 +92,7 @@
   <section id="home">
     <div class="hero-background">
       <!-- Imagem de fundo atmosférica com respiro e foco no centro -->
+      <!-- PENDENTE: Substituir por foto real da fachada ou ambiente do bar quando fornecida pelo cliente -->
       <img src="img/hero-bg.png" alt="Ambiente do Espeto Bar Di Propósito">
     </div>
     
@@ -234,104 +235,29 @@
         <h2 class="section-title">Destaques do Cardápio</h2>
       </div>
       
-      <div class="cardapio-grid reveal delay-1">
-        
-        <!-- Item 1: Espetinhos -->
-        <div class="cardapio-item">
-          <div class="cardapio-img-box">
-            <span class="cardapio-badge">Mais Pedido</span>
-            <!-- Imagem realística placeholder do espetinho gerada pela IA -->
-            <img src="img/espeto.png" alt="Espetinhos na Brasa Di Propósito">
-          </div>
-          <div class="cardapio-info">
-            <h3 class="cardapio-title">Espetinhos na Brasa</h3>
-            <p class="cardapio-desc">Grelhados com perfeição na churrasqueira a carvão. Opções de carne, queijo coalho, medalhão, frango e mais.</p>
-          </div>
-        </div>
-        
-        <!-- Item 2: Picanha -->
-        <div class="cardapio-item">
-          <div class="cardapio-img-box">
-            <span class="cardapio-badge">Especialidade</span>
-            <img src="img/hero-bg.png" alt="Picanha Especial Di Propósito">
-          </div>
-          <div class="cardapio-info">
-            <h3 class="cardapio-title">Picanha Nobre</h3>
-            <p class="cardapio-desc">Acompanhada de batata frita rústica, farofa da casa temperada, vinagrete fresco e pão de alho crocante.</p>
-          </div>
-        </div>
-        
-        <!-- Item 3: Salmão -->
-        <div class="cardapio-item">
-          <div class="cardapio-img-box">
-            <img src="img/ambiente.png" alt="Salmão Grelhado Di Propósito">
-          </div>
-          <div class="cardapio-info">
-            <h3 class="cardapio-title">Salmão Grelhado</h3>
-            <p class="cardapio-desc">Filé de salmão servido com purê cremoso de batatas, legumes da estação grelhados e batatas rústicas douradas.</p>
-          </div>
-        </div>
-        
-        <!-- Item 4: Caipirinhas -->
-        <div class="cardapio-item">
-          <div class="cardapio-img-box">
-            <span class="cardapio-badge">Refrescante</span>
-            <img src="img/drink.png" alt="Drinks e Caipirinhas Di Propósito">
-          </div>
-          <div class="cardapio-info">
-            <h3 class="cardapio-title">Drinks & Caipirinhas</h3>
-            <p class="cardapio-desc">Receitas exclusivas e clássicas com frutas frescas da época, destilados premium e gelo cristalino.</p>
-          </div>
-        </div>
-        
-        <!-- Item 5: Cervejas -->
-        <div class="cardapio-item">
-          <div class="cardapio-img-box">
-            <img src="img/adega-combo.png" alt="Cervejas Geladas Di Propósito">
-          </div>
-          <div class="cardapio-info">
-            <h3 class="cardapio-title">Cervejas Geladas</h3>
-            <p class="cardapio-desc">Rótulos nacionais e importados mantidos em temperatura ideal (trincando) para refrescar sua resenha.</p>
-          </div>
-        </div>
-        
-        <!-- Item 6: Destilados -->
-        <div class="cardapio-item">
-          <div class="cardapio-img-box">
-            <span class="cardapio-badge">Premium</span>
-            <img src="img/adega-combo.png" alt="Destilados Premium Di Propósito">
-          </div>
-          <div class="cardapio-info">
-            <h3 class="cardapio-title">Destilados Premium</h3>
-            <p class="cardapio-desc">Doses ou garrafas de whisky, gin, vodka e licores selecionados das melhores marcas mundiais.</p>
-          </div>
-        </div>
-        
-        <!-- Item 7: Sobremesas -->
-        <div class="cardapio-item">
-          <div class="cardapio-img-box">
-            <img src="img/ambiente.png" alt="Sobremesas Di Propósito">
-          </div>
-          <div class="cardapio-info">
-            <h3 class="cardapio-title">Pudim & Petit Gateau</h3>
-            <p class="cardapio-desc">Para fechar com chave de ouro: pudim de leite condensado super cremoso ou petit gateau com sorvete de creme.</p>
-          </div>
-        </div>
-        
-        <!-- Placeholder para novos itens futuros do Cardápio -->
-        <div class="cardapio-item" style="border: 1px dashed rgba(201, 168, 76, 0.25); background: transparent;">
-          <div class="cardapio-info" style="justify-content: center; align-items: center; text-align: center; min-height: 300px;">
-            <i class="fa-solid fa-circle-plus" style="font-size: 2.5rem; color: rgba(201, 168, 76, 0.4); margin-bottom: 1rem;"></i>
-            <h3 class="cardapio-title" style="color: var(--text-muted);">Mais Novidades</h3>
-            <p class="cardapio-desc" style="color: rgba(164, 178, 172, 0.6);">Novos pratos e espetos especiais serão adicionados em breve pelo estabelecimento.</p>
-          </div>
-        </div>
-        
+      <!-- Filtros de Categoria -->
+      <div class="cardapio-filters reveal delay-1" id="cardapio-filters">
+        <button class="filter-btn active" data-category="Todos">Todos</button>
+        <button class="filter-btn" data-category="Espetos">Espetos</button>
+        <button class="filter-btn" data-category="Lanches">Lanches</button>
+        <button class="filter-btn" data-category="Porções">Porções</button>
+        <button class="filter-btn" data-category="Jantinhas">Jantinhas</button>
+      </div>
+      
+      <div class="cardapio-grid reveal delay-1" id="cardapio-grid">
+        <!-- Os itens do cardápio serão carregados dinamicamente via JavaScript -->
+      </div>
+      
+      <!-- Botão Ver Mais Opções -->
+      <div class="ver-mais-container reveal delay-2" id="ver-mais-container" style="text-align: center; margin-bottom: 3.5rem;">
+        <button id="btn-ver-mais" class="btn btn-gold">
+          Ver mais opções <i class="fa-solid fa-chevron-down"></i>
+        </button>
       </div>
       
       <div class="cardapio-footer reveal">
         <p>Consulte todos os sabores, acompanhamentos e opções disponíveis no WhatsApp.</p>
-        <a href="https://wa.me/5511968662940?text=Olá!%20Gostaria%20de%20ver%20o%20cardápio%20do%20Di%20Propósito." 
+        <a href="https://wa.me/5511968662940?text=Olá!%20Gostaria%20de%20ver%20o%20cardápio%20completo%20do%20Di%20Propósito." 
            target="_blank" 
            class="btn btn-whatsapp" 
            id="cardapio-btn-whats">
@@ -391,6 +317,7 @@
         <div class="delivery-img-wrapper reveal delay-1">
           <div class="delivery-img-frame">
             <!-- Imagem representativa do combo de bebidas -->
+            <!-- PENDENTE: Substituir por foto real de combos de bebidas ou fachada da adega do cliente -->
             <img src="img/adega-combo.png" alt="Produtos da Adega Di Propósito">
           </div>
         </div>
@@ -415,6 +342,7 @@
         <div class="slider-wrapper" id="slider">
           
           <div class="slide">
+            <!-- PENDENTE: Substituir por foto real de clientes/ambiente no bar do cliente -->
             <img src="img/ambiente.png" alt="Amigos no Espeto Bar Di Propósito">
             <div class="slide-caption">
               <h4>Nossa Resenha</h4>
@@ -423,6 +351,7 @@
           </div>
           
           <div class="slide">
+            <!-- PENDENTE: Substituir por foto real de show ao vivo / cantor no palco do bar do cliente -->
             <img src="img/music.png" alt="Shows e eventos musicais">
             <div class="slide-caption">
               <h4>Música ao Vivo</h4>
@@ -431,7 +360,8 @@
           </div>
           
           <div class="slide">
-            <img src="img/espeto.png" alt="Espetinho premium na churrasqueira">
+            <!-- FOTO REAL DO CLIENTE: Carne de churrasco suculenta na brasa -->
+            <img src="img/Food/carne-2.jpg" alt="Espeto de carne assando na brasa do Di Propósito" loading="lazy">
             <div class="slide-caption">
               <h4>Churrasco no Ponto</h4>
               <p>Ingredientes selecionados preparados com o carinho e qualidade da brasa.</p>
@@ -439,6 +369,7 @@
           </div>
           
           <div class="slide">
+            <!-- PENDENTE: Substituir por foto real de drinks elaborados do bar do cliente -->
             <img src="img/drink.png" alt="Drinks especiais e coquetéis">
             <div class="slide-caption">
               <h4>Drinks Clássicos</h4>
@@ -598,6 +529,7 @@
       <div class="insta-grid reveal delay-1">
         
         <div class="insta-item">
+          <!-- PENDENTE: Substituir por foto real do ambiente do bar do cliente -->
           <img src="img/ambiente.png" alt="Feed Di Propósito 1">
           <div class="insta-overlay">
             <i class="fab fa-instagram"></i>
@@ -606,7 +538,8 @@
         </div>
         
         <div class="insta-item">
-          <img src="img/espeto.png" alt="Feed Di Propósito 2">
+          <!-- FOTO REAL DO CLIENTE: Hambúrguer Duplo Bacon -->
+          <img src="img/Food/duplo-bacon-2.jpg" alt="Hambúrguer Duplo Bacon do Di Propósito no Instagram" loading="lazy">
           <div class="insta-overlay">
             <i class="fab fa-instagram"></i>
             <span>Ver Post</span>
@@ -614,6 +547,7 @@
         </div>
         
         <div class="insta-item">
+          <!-- PENDENTE: Substituir por foto real de drink do bar do cliente -->
           <img src="img/drink.png" alt="Feed Di Propósito 3">
           <div class="insta-overlay">
             <i class="fab fa-instagram"></i>
@@ -622,6 +556,7 @@
         </div>
         
         <div class="insta-item">
+          <!-- PENDENTE: Substituir por foto real de combos de cerveja da adega do cliente -->
           <img src="img/adega-combo.png" alt="Feed Di Propósito 4">
           <div class="insta-overlay">
             <i class="fab fa-instagram"></i>
