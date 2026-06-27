@@ -509,13 +509,20 @@ header.scrolled .logo img {
 }
 
 .hero-logo-box {
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   animation: float 6s ease-in-out infinite;
 }
 
 .hero-logo-box img {
-  max-height: 130px;
+  max-height: 90px;
   width: auto;
+  transition: var(--transition);
+}
+
+@media (min-width: 768px) {
+  .hero-logo-box img {
+    max-height: 110px;
+  }
 }
 
 @keyframes float {
@@ -526,32 +533,32 @@ header.scrolled .logo img {
 
 .hero-title {
   font-family: var(--font-title);
-  font-size: 2.25rem;
+  font-size: 2rem;
   line-height: 1.15;
   font-weight: 600;
   color: var(--text-light);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   letter-spacing: 0.5px;
 }
 
 @media (min-width: 768px) {
   .hero-title {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 }
 
 .hero-subtitle {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
   max-width: 600px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   font-weight: 300;
 }
 
 @media (min-width: 768px) {
   .hero-subtitle {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -560,7 +567,7 @@ header.scrolled .logo img {
   flex-direction: column;
   width: 100%;
   gap: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 @media (min-width: 480px) {
