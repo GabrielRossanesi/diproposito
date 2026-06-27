@@ -372,6 +372,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const filterBtns = document.querySelectorAll('#cardapio-filters .filter-btn');
 
   if (cardapioGrid) {
+    // Variáveis globais para controle do Lightbox
+    let activeItems = [];
+    let currentLightboxIndex = -1;
+    let lastFocusedElement = null;
+
+    const lightbox = document.getElementById('cardapio-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxDesc = document.getElementById('lightbox-desc');
+    const lightboxWhatsBtn = document.getElementById('lightbox-whats-btn');
+    const btnClose = document.getElementById('lightbox-close');
+    const btnPrev = document.getElementById('lightbox-prev');
+    const btnNext = document.getElementById('lightbox-next');
+
     const renderMenu = () => {
       // Filtrar itens pela categoria ativa
       const filteredItems = menuItems.filter(item => {
@@ -381,10 +395,13 @@ document.addEventListener('DOMContentLoaded', () => {
       // Pegar a fatia de itens visíveis
       const itemsToRender = filteredItems.slice(0, visibleCount);
 
+      // Salvar os itens atualmente exibidos para navegação do Lightbox
+      activeItems = itemsToRender;
+
       // Concatenar marcação HTML dos cards em memória para escrita única
       let gridHTML = '';
 
-      itemsToRender.forEach(item => {
+      itemsToRender.forEach((item, index) => {
         // Criar conteúdo do badge se existir
         const badgeHTML = item.badge 
           ? `<span class="cardapio-badge">${item.badge}</span>` 
@@ -396,9 +413,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         gridHTML += `
           <div class="cardapio-item">
-            <div class="cardapio-img-box">
+            <div class="cardapio-img-box" data-index="${index}">
               ${badgeHTML}
               <img src="${item.image}" alt="${item.name} do Di Propósito" loading="lazy" width="300" height="220" style="aspect-ratio: 300/220; object-fit: cover;">
+              <div class="cardapio-img-overlay">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                <span>Ver Foto</span>
+              </div>
             </div>
             <div class="cardapio-info">
               <h3 class="cardapio-title">${item.name}</h3>
@@ -421,6 +442,94 @@ document.addEventListener('DOMContentLoaded', () => {
         verMaisContainer.style.display = 'none';
       }
     };
+
+    // Função para abrir o Lightbox
+    const openLightbox = (index) => {
+      if (index < 0 || index >= activeItems.length) return;
+      
+      // Salvar o elemento ativo antes de abrir o modal (gestão de foco/acessibilidade)
+      if (currentLightboxIndex === -1) {
+        lastFocusedElement = document.activeElement;
+      }
+      
+      currentLightboxIndex = index;
+      const item = activeItems[index];
+
+      // Atualizar dados do modal
+      lightboxImg.src = item.image;
+      lightboxImg.alt = `${item.name} do Di Propósito - Foto Ampliada`;
+      lightboxTitle.textContent = item.name;
+      lightboxDesc.textContent = item.description;
+
+      const waMessage = `Olá! Gostaria de pedir ou saber mais sobre o ${item.name} do Di Propósito.`;
+      lightboxWhatsBtn.href = `https://wa.me/5511968662940?text=${encodeURIComponent(waMessage)}`;
+
+      // Exibir o modal
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      
+      // Mover o foco para o botão de fechar
+      if (btnClose) btnClose.focus();
+    };
+
+    // Função para fechar o Lightbox
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      currentLightboxIndex = -1;
+
+      // Devolver o foco para o elemento original
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+      }
+    };
+
+    // Funções de navegação do Lightbox
+    const showNext = () => {
+      if (activeItems.length <= 1) return;
+      const nextIndex = (currentLightboxIndex + 1) % activeItems.length;
+      openLightbox(nextIndex);
+    };
+
+    const showPrev = () => {
+      if (activeItems.length <= 1) return;
+      const prevIndex = (currentLightboxIndex - 1 + activeItems.length) % activeItems.length;
+      openLightbox(prevIndex);
+    };
+
+    // Event Delegation no cardapioGrid
+    cardapioGrid.addEventListener('click', (e) => {
+      const imgBox = e.target.closest('.cardapio-img-box');
+      if (imgBox) {
+        const index = parseInt(imgBox.getAttribute('data-index'), 10);
+        openLightbox(index);
+      }
+    });
+
+    // Ouvintes dos botões de controle do Lightbox
+    if (btnClose) btnClose.addEventListener('click', closeLightbox);
+    if (btnNext) btnNext.addEventListener('click', showNext);
+    if (btnPrev) btnPrev.addEventListener('click', showPrev);
+
+    // Fechar ao clicar fora do conteúdo (no overlay)
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Atalhos de teclado (acessibilidade e conveniência)
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+
+      if (e.key === 'Escape') {
+        closeLightbox();
+      } else if (e.key === 'ArrowRight') {
+        showNext();
+      } else if (e.key === 'ArrowLeft') {
+        showPrev();
+      }
+    });
 
     // Listener para o botão "Ver mais"
     if (btnVerMais) {

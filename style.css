@@ -1862,3 +1862,279 @@ footer {
 .footer-credits a:hover {
   color: var(--accent-gold);
 }
+
+/* ==========================================================================
+   LIGHTBOX MODAL & CARDAPIO IMAGE HOVER
+   ========================================================================== */
+
+/* Efeito de hover na imagem do cardápio */
+.cardapio-img-box {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.cardapio-img-box img {
+  transition: transform 0.4s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardapio-img-box:hover img {
+  transform: scale(1.05);
+}
+
+/* Overlay sutil ao passar o mouse */
+.cardapio-img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(16, 38, 29, 0.7); /* Tom verde floresta escuro translúcido */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: var(--accent-gold);
+}
+
+.cardapio-img-box:hover .cardapio-img-overlay {
+  opacity: 1;
+}
+
+.cardapio-img-overlay i {
+  font-size: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cardapio-img-overlay span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Lightbox Base */
+.lightbox-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(6, 12, 9, 0.96); /* Obsidian com toque floresta */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Conteúdo do Lightbox */
+.lightbox-content {
+  background: rgba(16, 38, 29, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  border-radius: 16px;
+  max-width: 800px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  transform: scale(0.92);
+  transition: transform 0.3s ease;
+}
+
+.lightbox-modal.active .lightbox-content {
+  transform: scale(1);
+}
+
+/* Imagem no Lightbox */
+.lightbox-img-container {
+  width: 100%;
+  height: 240px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.lightbox-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Detalhes de Texto no Lightbox */
+.lightbox-info-container {
+  padding: 1.8rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(16, 38, 29, 0) 0%, rgba(10, 24, 18, 0.9) 100%);
+}
+
+#lightbox-title {
+  font-family: var(--font-primary);
+  color: var(--accent-gold);
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+#lightbox-desc {
+  color: var(--text-light);
+  opacity: 0.9;
+  margin-bottom: 1.8rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Botão do WhatsApp no Lightbox */
+.btn-lightbox-whats {
+  background: linear-gradient(135deg, var(--accent-green) 0%, #10261d 100%);
+  color: #fff;
+  border: 1px solid var(--accent-gold);
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  text-align: center;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.btn-lightbox-whats:hover {
+  background: var(--accent-green);
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+/* Botão de Fechar */
+.lightbox-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+  z-index: 10001;
+}
+
+.lightbox-close-btn:hover {
+  background: rgba(197, 160, 89, 0.2);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+/* Botões de Navegação */
+.lightbox-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(16, 38, 29, 0.7);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+.lightbox-nav-btn:hover {
+  background: rgba(197, 160, 89, 0.25);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.prev-btn {
+  left: 20px;
+}
+
+.next-btn {
+  right: 20px;
+}
+
+/* Media Queries Responsivas */
+@media (min-width: 768px) {
+  .lightbox-content {
+    flex-direction: row;
+    max-height: 90vh;
+  }
+  
+  .lightbox-img-container {
+    width: 50%;
+    height: auto;
+    min-height: 400px;
+  }
+  
+  .lightbox-info-container {
+    width: 50%;
+    padding: 2.5rem;
+  }
+  
+  #lightbox-title {
+    font-size: 1.9rem;
+  }
+}
+
+/* Mobile First Navigation: reposicionar setas para a parte inferior central */
+@media (max-width: 991px) {
+  .lightbox-nav-btn {
+    position: fixed;
+    top: auto;
+    bottom: 25px;
+    transform: none;
+    background: rgba(10, 24, 18, 0.9);
+    border-color: rgba(197, 160, 89, 0.4);
+  }
+  
+  .prev-btn {
+    left: calc(50% - 65px);
+  }
+  
+  .next-btn {
+    right: calc(50% - 65px);
+  }
+  
+  .lightbox-content {
+    margin-bottom: 70px; /* Espaço para as setas inferiores */
+  }
+}
