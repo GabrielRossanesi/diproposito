@@ -413,7 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         gridHTML += `
           <div class="cardapio-item">
-            <div class="cardapio-img-box" data-index="${index}">
+            <div class="cardapio-img-box" data-index="${index}" tabindex="0" role="button" aria-label="Ampliar foto de ${item.name}">
               ${badgeHTML}
               <img src="${item.image}" alt="${item.name} do Di Propósito" loading="lazy" width="300" height="220" style="aspect-ratio: 300/220; object-fit: cover;">
               <div class="cardapio-img-overlay">
@@ -497,10 +497,20 @@ document.addEventListener('DOMContentLoaded', () => {
       openLightbox(prevIndex);
     };
 
-    // Event Delegation no cardapioGrid
+    // Event Delegation no cardapioGrid (Clique)
     cardapioGrid.addEventListener('click', (e) => {
       const imgBox = e.target.closest('.cardapio-img-box');
       if (imgBox) {
+        const index = parseInt(imgBox.getAttribute('data-index'), 10);
+        openLightbox(index);
+      }
+    });
+
+    // Event Delegation no cardapioGrid (Teclado - Enter/Espaço para acessibilidade)
+    cardapioGrid.addEventListener('keydown', (e) => {
+      const imgBox = e.target.closest('.cardapio-img-box');
+      if (imgBox && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault(); // Evitar rolagem da página com barra de espaço
         const index = parseInt(imgBox.getAttribute('data-index'), 10);
         openLightbox(index);
       }
