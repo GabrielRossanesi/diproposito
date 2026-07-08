@@ -813,96 +813,130 @@ header.scrolled .logo img {
 }
 
 .cardapio-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.5rem;
+  border-top: 1px solid rgba(201, 168, 76, 0.12);
 }
 
 @media (min-width: 768px) {
   .cardapio-grid {
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.5rem;
+    border-top: none;
   }
 }
 
-@media (min-width: 1200px) {
-  .cardapio-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* Cards do Cardápio */
-.cardapio-item {
-  background: var(--bg-card);
-  border: 1px solid rgba(201, 168, 76, 0.1);
-  transition: var(--transition);
+/* Item do Cardápio — estilo lista (iFood) */
+.menu-row {
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  position: relative;
-}
-
-.cardapio-img-box {
+  align-items: flex-start;
+  gap: 1rem;
   width: 100%;
-  height: 220px;
-  overflow: hidden;
-  position: relative;
+  text-align: left;
+  padding: 1.15rem 0.25rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+  cursor: pointer;
+  transition: background 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.cardapio-img-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+.menu-row:hover {
+  background: rgba(16, 38, 29, 0.4);
 }
 
-.cardapio-badge {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background-color: var(--accent-gold);
-  color: var(--bg-dark);
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 0.4rem 0.8rem;
-  z-index: 10;
+.menu-row:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: -2px;
 }
 
-.cardapio-info {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+.menu-row-info {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
-.cardapio-title {
+.menu-row-title {
   font-family: var(--font-title);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   color: var(--text-light);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
+  line-height: 1.25;
 }
 
-.cardapio-desc {
+.menu-row-desc {
   font-family: var(--font-body);
   color: var(--text-muted);
   font-size: 0.85rem;
   font-weight: 300;
-  line-height: 1.5;
-  flex-grow: 1;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* Efeito de Hover no Cardápio */
-.cardapio-item:hover {
-  border-color: var(--accent-gold);
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6), 0 0 20px var(--gold-glow);
-  transform: translateY(-5px);
+.menu-row-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
 }
 
-.cardapio-item:hover .cardapio-img-box img {
-  transform: scale(1.06);
+.menu-row-thumb {
+  flex: 0 0 auto;
+  width: 92px;
+  height: 92px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid rgba(201, 168, 76, 0.12);
+}
+
+.menu-row-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menu-row:hover .menu-row-thumb img {
+  transform: scale(1.07);
+}
+
+.menu-row-badge {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background-color: var(--accent-gold);
+  color: var(--bg-dark);
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  z-index: 2;
+  max-width: 82px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 480px) {
+  .menu-row-thumb {
+    width: 104px;
+    height: 104px;
+  }
 }
 
 .cardapio-footer {
@@ -918,59 +952,54 @@ header.scrolled .logo img {
 /* Filtros e Botões do Cardápio Dinâmico */
 .cardapio-filters {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 3.5rem;
+  flex-wrap: nowrap;
+  gap: 0.6rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.85rem 0;
+  margin-bottom: 1.5rem;
+  position: sticky;
+  top: var(--header-height);
+  z-index: 60;
+  background: rgba(5, 7, 6, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.cardapio-filters::-webkit-scrollbar {
+  display: none;
 }
 
 .filter-btn {
-  background-color: rgba(16, 38, 29, 0.45);
+  flex: 0 0 auto;
+  background-color: rgba(16, 38, 29, 0.55);
   color: var(--text-muted);
   border: 1px solid rgba(201, 168, 76, 0.15);
-  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  padding: 0.55rem 1.25rem;
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
+  white-space: nowrap;
   transition: var(--transition);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .filter-btn:hover,
 .filter-btn.active {
   color: var(--text-light);
   border-color: var(--accent-gold);
-  background-color: var(--primary-green);
+  background-color: var(--accent-green);
   box-shadow: 0 0 15px var(--gold-glow);
 }
 
-/* Botão de WhatsApp por Item */
-.btn-card-whats {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1.25rem;
-  padding: 0.6rem 1rem;
-  background-color: transparent;
-  color: var(--accent-gold);
-  border: 1px solid rgba(201, 168, 76, 0.3);
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: var(--transition);
-  cursor: pointer;
-  width: 100%;
-}
-
-.btn-card-whats:hover {
-  background-color: #25D366;
-  color: #fff;
-  border-color: #25D366;
-  box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
+@media (min-width: 768px) {
+  .cardapio-filters {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 /* Container do Botão Ver Mais */
@@ -1868,58 +1897,6 @@ footer {
    ========================================================================== */
 
 /* Efeito de hover na imagem do cardápio */
-.cardapio-img-box {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.cardapio-img-box img {
-  transition: transform 0.4s ease;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.cardapio-img-box:hover img {
-  transform: scale(1.05);
-}
-
-/* Overlay sutil ao passar o mouse */
-.cardapio-img-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(16, 38, 29, 0.7); /* Tom verde floresta escuro translúcido */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  color: var(--accent-gold);
-}
-
-.cardapio-img-box:hover .cardapio-img-overlay {
-  opacity: 1;
-}
-
-.cardapio-img-overlay i {
-  font-size: 1.5rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.cardapio-img-overlay span {
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
 /* Lightbox Base */
 .lightbox-modal {
   position: fixed;
@@ -1927,11 +1904,11 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(6, 12, 9, 0.96); /* Obsidian com toque floresta */
+  background-color: rgba(5, 7, 6, 0.9); /* Obsidian translúcido */
   z-index: 9999;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end; /* Sheet ancorado embaixo no mobile */
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -1944,30 +1921,31 @@ footer {
 
 /* Conteúdo do Lightbox */
 .lightbox-content {
-  background: rgba(16, 38, 29, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: var(--bg-section);
   border: 1px solid rgba(197, 160, 89, 0.25);
-  border-radius: 16px;
-  max-width: 800px;
-  width: 90%;
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 92vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-  transform: scale(0.92);
-  transition: transform 0.3s ease;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.6);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
 }
 
 .lightbox-modal.active .lightbox-content {
-  transform: scale(1);
+  transform: translateY(0);
 }
 
 /* Imagem no Lightbox */
 .lightbox-img-container {
   width: 100%;
-  height: 240px;
-  background: #000;
+  background: #0a0a0a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1976,24 +1954,54 @@ footer {
 
 .lightbox-img-container img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: 56vh;
+  object-fit: contain; /* Mostra o item inteiro, sem corte */
 }
 
 /* Detalhes de Texto no Lightbox */
 .lightbox-info-container {
-  padding: 1.8rem;
+  padding: 1.5rem 1.5rem 2rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: linear-gradient(180deg, rgba(16, 38, 29, 0) 0%, rgba(10, 24, 18, 0.9) 100%);
+}
+
+/* Alça de arraste do bottom sheet */
+.sheet-handle {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(248, 242, 230, 0.28);
+  margin: 10px auto 2px;
+}
+
+/* Selo/badge dentro do detalhe */
+.sheet-badge {
+  display: none;
+  align-self: flex-start;
+  background-color: var(--accent-gold);
+  color: var(--bg-dark);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  margin-bottom: 0.8rem;
+}
+
+.sheet-badge.show {
+  display: inline-block;
 }
 
 #lightbox-title {
-  font-family: var(--font-primary);
+  font-family: var(--font-title);
   color: var(--accent-gold);
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   margin-bottom: 0.8rem;
   letter-spacing: 0.5px;
 }
@@ -2094,47 +2102,65 @@ footer {
 
 /* Media Queries Responsivas */
 @media (min-width: 768px) {
+  .lightbox-modal {
+    align-items: center;
+  }
+
   .lightbox-content {
     flex-direction: row;
-    max-height: 90vh;
+    align-items: stretch;
+    max-width: 880px;
+    width: 90%;
+    max-height: 86vh;
+    border-radius: 18px;
+    overflow: hidden;
+    transform: scale(0.94);
   }
-  
+
+  .lightbox-modal.active .lightbox-content {
+    transform: scale(1);
+  }
+
+  .sheet-handle {
+    display: none;
+  }
+
   .lightbox-img-container {
-    width: 50%;
-    height: auto;
-    min-height: 400px;
+    width: 55%;
+    align-self: stretch;
+    max-height: 86vh;
   }
-  
+
+  .lightbox-img-container img {
+    height: 100%;
+    max-height: 86vh;
+  }
+
   .lightbox-info-container {
-    width: 50%;
+    width: 45%;
     padding: 2.5rem;
+    align-self: center;
   }
-  
+
   #lightbox-title {
     font-size: 1.9rem;
   }
 }
 
-/* Mobile First Navigation: reposicionar setas para a parte inferior central */
+/* Mobile: setas menores sobrepostas à imagem */
 @media (max-width: 991px) {
   .lightbox-nav-btn {
-    position: fixed;
-    top: auto;
-    bottom: 25px;
-    transform: none;
-    background: rgba(10, 24, 18, 0.9);
-    border-color: rgba(197, 160, 89, 0.4);
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    background: rgba(5, 7, 6, 0.55);
   }
-  
+
   .prev-btn {
-    left: calc(50% - 65px);
+    left: 10px;
   }
-  
+
   .next-btn {
-    right: calc(50% - 65px);
-  }
-  
-  .lightbox-content {
-    margin-bottom: 70px; /* Espaço para as setas inferiores */
+    right: 10px;
   }
 }

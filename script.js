@@ -381,6 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxTitle = document.getElementById('lightbox-title');
     const lightboxDesc = document.getElementById('lightbox-desc');
+    const lightboxBadge = document.getElementById('lightbox-badge');
     const lightboxWhatsBtn = document.getElementById('lightbox-whats-btn');
     const btnClose = document.getElementById('lightbox-close');
     const btnPrev = document.getElementById('lightbox-prev');
@@ -403,30 +404,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
       itemsToRender.forEach((item, index) => {
         // Criar conteúdo do badge se existir
-        const badgeHTML = item.badge 
-          ? `<span class="cardapio-badge">${item.badge}</span>` 
+        const badgeHTML = item.badge
+          ? `<span class="menu-row-badge">${item.badge}</span>`
           : '';
 
-        // Formatar a mensagem do WhatsApp
-        const waMessage = `Olá! Gostaria de pedir ou saber mais sobre o ${item.name} do Di Propósito.`;
-        const waLink = `https://wa.me/5511968662940?text=${encodeURIComponent(waMessage)}`;
-
         gridHTML += `
-          <div class="cardapio-item">
-            <div class="cardapio-img-box" data-index="${index}" tabindex="0" role="button" aria-label="Ampliar foto de ${item.name}">
-              ${badgeHTML}
-              <img src="${item.image}" alt="${item.name} do Di Propósito" loading="lazy" width="300" height="220" style="aspect-ratio: 300/220; object-fit: cover;">
-              <div class="cardapio-img-overlay">
-                <i class="fa-solid fa-magnifying-glass-plus"></i>
-                <span>Ver Foto</span>
-              </div>
+          <div class="menu-row" data-index="${index}" tabindex="0" role="button" aria-label="Ver detalhes de ${item.name}">
+            <div class="menu-row-info">
+              <h3 class="menu-row-title">${item.name}</h3>
+              <p class="menu-row-desc">${item.description}</p>
+              <span class="menu-row-cta"><i class="fa-solid fa-magnifying-glass-plus"></i> Ver foto & pedir</span>
             </div>
-            <div class="cardapio-info">
-              <h3 class="cardapio-title">${item.name}</h3>
-              <p class="cardapio-desc">${item.description}</p>
-              <a href="${waLink}" target="_blank" class="btn-card-whats">
-                <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
-              </a>
+            <div class="menu-row-thumb">
+              ${badgeHTML}
+              <img src="${item.image}" alt="${item.name} do Di Propósito" loading="lazy" width="104" height="104">
             </div>
           </div>
         `;
@@ -460,6 +451,17 @@ document.addEventListener('DOMContentLoaded', () => {
       lightboxImg.alt = `${item.name} do Di Propósito - Foto Ampliada`;
       lightboxTitle.textContent = item.name;
       lightboxDesc.textContent = item.description;
+
+      // Selo/badge (mostra apenas se o item tiver)
+      if (lightboxBadge) {
+        if (item.badge) {
+          lightboxBadge.textContent = item.badge;
+          lightboxBadge.classList.add('show');
+        } else {
+          lightboxBadge.textContent = '';
+          lightboxBadge.classList.remove('show');
+        }
+      }
 
       const waMessage = `Olá! Gostaria de pedir ou saber mais sobre o ${item.name} do Di Propósito.`;
       lightboxWhatsBtn.href = `https://wa.me/5511968662940?text=${encodeURIComponent(waMessage)}`;
@@ -499,19 +501,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Event Delegation no cardapioGrid (Clique)
     cardapioGrid.addEventListener('click', (e) => {
-      const imgBox = e.target.closest('.cardapio-img-box');
-      if (imgBox) {
-        const index = parseInt(imgBox.getAttribute('data-index'), 10);
+      const row = e.target.closest('.menu-row');
+      if (row) {
+        const index = parseInt(row.getAttribute('data-index'), 10);
         openLightbox(index);
       }
     });
 
     // Event Delegation no cardapioGrid (Teclado - Enter/Espaço para acessibilidade)
     cardapioGrid.addEventListener('keydown', (e) => {
-      const imgBox = e.target.closest('.cardapio-img-box');
-      if (imgBox && (e.key === 'Enter' || e.key === ' ')) {
+      const row = e.target.closest('.menu-row');
+      if (row && (e.key === 'Enter' || e.key === ' ')) {
         e.preventDefault(); // Evitar rolagem da página com barra de espaço
-        const index = parseInt(imgBox.getAttribute('data-index'), 10);
+        const index = parseInt(row.getAttribute('data-index'), 10);
         openLightbox(index);
       }
     });
