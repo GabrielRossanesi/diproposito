@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cardápio completo do Di Propósito Gastrobar — espetos na brasa, jantinhas, lanches artesanais e porções. Monte seu pedido para delivery ou para a mesa pelo WhatsApp.">
+  <meta name="author" content="Morales Soluções">
+  <link rel="canonical" href="https://dipropositogastrobar.com.br/cardapio">
+  <meta name="theme-color" content="#050706">
+  <meta name="robots" content="index, follow">
+
+  <!-- Favicons -->
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dipropositogastrobar.com.br/cardapio">
+  <meta property="og:site_name" content="Di Propósito Gastrobar">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Cardápio | Di Propósito Gastrobar">
+  <meta property="og:description" content="Espetos na brasa, jantinhas, lanches artesanais e porções. Monte seu pedido para delivery ou para a mesa.">
+  <meta property="og:image" content="https://dipropositogastrobar.com.br/img/hero-bg.jpg">
+
+  <title>Cardápio | Di Propósito Gastrobar</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER / NAVIGATION -->
+  <header id="main-header">
+    <div class="container header-container">
+      <a href="index.html" class="logo" id="header-logo-link">
+        <img src="img/logo.png" alt="Logomarca Di Propósito" id="header-logo">
+      </a>
+
+      <nav class="nav-menu" id="desktop-nav">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="index.html#sobre" class="nav-link">Sobre</a>
+        <a href="cardapio.html" class="nav-link active">Cardápio</a>
+        <a href="index.html#delivery" class="nav-link">Delivery</a>
+        <a href="index.html#ambiente" class="nav-link">Ambiente</a>
+        <a href="index.html#eventos" class="nav-link">Eventos</a>
+        <a href="index.html#contato" class="nav-link">Localização</a>
+      </nav>
+
+      <div class="header-cta">
+        <a href="https://wa.me/5511968662940?text=Olá!%20Gostaria%20de%20fazer%20uma%20reserva%20de%20mesa%20no%20Di%20Propósito%20Gastrobar."
+           target="_blank"
+           class="btn btn-gold">
+          Reservar Mesa
+        </a>
+      </div>
+
+      <button class="hamburger" id="menu-toggle" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Menu Responsivo Mobile (Drawer) -->
+  <nav class="mobile-menu" id="mobile-drawer">
+    <a href="index.html" class="nav-link">Início</a>
+    <a href="index.html#sobre" class="nav-link">Sobre</a>
+    <a href="cardapio.html" class="nav-link active">Cardápio</a>
+    <a href="index.html#delivery" class="nav-link">Delivery</a>
+    <a href="index.html#ambiente" class="nav-link">Ambiente</a>
+    <a href="index.html#eventos" class="nav-link">Eventos</a>
+    <a href="index.html#aniversarios" class="nav-link">Aniversários</a>
+    <a href="index.html#contato" class="nav-link">Localização</a>
+    <a href="https://wa.me/5511968662940?text=Olá!%20Gostaria%20de%20fazer%20uma%20reserva%20de%20mesa%20no%20Di%20Propósito%20Gastrobar."
+       target="_blank" class="btn btn-gold" style="margin-top: 1rem;">Reservar Mesa</a>
+  </nav>
+  <div class="overlay" id="menu-overlay"></div>
+
+  <!-- PÁGINA DO CARDÁPIO -->
+  <main class="cardapio-page">
+    <div class="container">
+      <div class="cardapio-page-head">
+        <span class="section-subtitle">Di Propósito Gastrobar</span>
+        <h1 class="section-title">Cardápio</h1>
+        <p class="cardapio-page-sub">Toque em um item para ampliar a foto. Monte seu pedido e envie pelo WhatsApp — para <strong>delivery</strong> ou para a <strong>sua mesa</strong>.</p>
+      </div>
+
+      <!-- Filtros de Categoria (sticky) -->
+      <div class="cardapio-filters" id="cardapio-filters">
+        <button class="filter-btn active" data-category="Todos">Todos</button>
+        <button class="filter-btn" data-category="Espetos">Espetos</button>
+        <button class="filter-btn" data-category="Lanches">Lanches</button>
+        <button class="filter-btn" data-category="Porções">Porções</button>
+        <button class="filter-btn" data-category="Jantinhas">Jantinhas</button>
+      </div>
+
+      <!-- Lista de itens (gerada por cardapio.js) -->
+      <div class="cardapio-grid" id="menu-list"></div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="img/logo.png" alt="Logomarca Di Propósito">
+          </div>
+          <p class="footer-brand-desc">
+            Duas frentes dedicadas a trazer o melhor do sabor e entretenimento para o Itaim Paulista. Gastrobar presencial e Adega Delivery.
+          </p>
+          <div class="footer-socials">
+            <a href="https://instagram.com/diproposito.gastrobar" target="_blank" class="social-icon" aria-label="Instagram Gastrobar">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://instagram.com/adegadiproposito" target="_blank" class="social-icon" aria-label="Instagram Adega">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/5511968662940" target="_blank" class="social-icon" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <h4 class="footer-title">Links Úteis</h4>
+          <div class="footer-links">
+            <a href="index.html">Início</a>
+            <a href="index.html#sobre">Sobre Nós</a>
+            <a href="cardapio.html">Nosso Cardápio</a>
+            <a href="index.html#delivery">Adega & Delivery</a>
+            <a href="index.html#ambiente">Ambiente</a>
+            <a href="index.html#eventos">Eventos</a>
+            <a href="index.html#contato">Localização</a>
+          </div>
+        </div>
+
+        <div class="footer-contact">
+          <h4 class="footer-title">Contatos</h4>
+          <div class="footer-contact-info">
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>R. Antônio João de Medeiros, 643/635<br>Itaim Paulista, São Paulo - SP</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+55 (11) 96866-2940</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>contato@dipropositogastrobar.com.br</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Di Propósito. Todos os direitos reservados.</p>
+        <p class="footer-credits">Desenvolvido por <a href="https://moralessolucoes.com.br/tecnologia" target="_blank" rel="noopener noreferrer">Morales Soluções</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Barra flutuante do carrinho -->
+  <button id="cart-bar" class="cart-bar" aria-label="Ver pedido" hidden>
+    <span class="cart-bar-left">
+      <span class="cart-bar-icon">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-bar-count" id="cart-bar-count">0</span>
+      </span>
+      <span class="cart-bar-text">Ver pedido</span>
+    </span>
+    <span class="cart-bar-cta">Enviar no WhatsApp <i class="fa-solid fa-chevron-right"></i></span>
+  </button>
+
+  <!-- Detalhe do item (Bottom Sheet / foto) -->
+  <div id="cardapio-lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
+    <div class="lightbox-content">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <button id="lightbox-close" class="lightbox-close-btn" aria-label="Fechar detalhe do item">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="lightbox-img-container">
+        <img id="lightbox-img" src="" alt="">
+        <button id="lightbox-prev" class="lightbox-nav-btn prev-btn" aria-label="Item anterior">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button id="lightbox-next" class="lightbox-nav-btn next-btn" aria-label="Próximo item">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="lightbox-info-container">
+        <span id="lightbox-badge" class="sheet-badge"></span>
+        <h3 id="lightbox-title"></h3>
+        <p id="lightbox-desc"></p>
+        <div id="lightbox-cart-control" class="lightbox-cart-control"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sheet do Pedido (carrinho) -->
+  <div id="cart-sheet" class="lightbox-modal cart-modal" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1" aria-label="Seu pedido">
+    <div class="lightbox-content cart-content">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <button id="cart-close" class="lightbox-close-btn" aria-label="Fechar pedido">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="cart-body">
+        <h3 class="cart-heading">Seu Pedido</h3>
+
+        <p id="cart-empty" class="cart-empty">
+          <i class="fa-solid fa-bag-shopping"></i>
+          Seu pedido está vazio.<br>Adicione itens do cardápio para começar.
+        </p>
+
+        <div id="cart-items" class="cart-items"></div>
+
+        <div id="cart-order-box" class="cart-order-box">
+          <span class="cart-section-label">Como você quer receber?</span>
+          <div class="order-type-toggle" id="order-type-toggle">
+            <button type="button" class="order-type-btn active" data-mode="delivery">
+              <i class="fa-solid fa-motorcycle"></i> Delivery
+            </button>
+            <button type="button" class="order-type-btn" data-mode="mesa">
+              <i class="fa-solid fa-chair"></i> Estou na mesa
+            </button>
+          </div>
+
+          <div id="fields-delivery" class="cart-fields">
+            <input type="text" id="field-nome" class="cart-input" placeholder="Seu nome" autocomplete="name">
+            <textarea id="field-endereco" class="cart-input" rows="2" placeholder="Endereço completo (rua, número, bairro e ponto de referência)"></textarea>
+          </div>
+
+          <div id="fields-mesa" class="cart-fields" hidden>
+            <input type="text" id="field-mesa" class="cart-input" inputmode="numeric" placeholder="Número da mesa">
+          </div>
+
+          <p id="cart-error" class="cart-error" hidden></p>
+
+          <button id="cart-send" class="btn-cart-send">
+            <i class="fab fa-whatsapp"></i> Enviar pedido pelo WhatsApp
+          </button>
+          <button id="cart-clear" class="cart-clear">Limpar pedido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="menu-data.js"></script>
+  <script src="cardapio.js"></script>
+</body>
+</html>

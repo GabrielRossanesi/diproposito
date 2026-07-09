@@ -10,11 +10,11 @@
   <meta name="theme-color" content="#050706">
 
   <!-- Favicons -->
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -313,21 +313,11 @@
       <div class="cardapio-grid reveal delay-1" id="cardapio-grid">
         <!-- Os itens do cardápio serão carregados dinamicamente via JavaScript -->
       </div>
-      
-      <!-- Botão Ver Mais Opções -->
-      <div class="ver-mais-container reveal delay-2" id="ver-mais-container" style="text-align: center; margin-bottom: 3.5rem;">
-        <button id="btn-ver-mais" class="btn btn-gold">
-          Ver mais opções <i class="fa-solid fa-chevron-down"></i>
-        </button>
-      </div>
-      
+
       <div class="cardapio-footer reveal">
-        <p>Consulte todos os sabores, acompanhamentos e opções disponíveis no WhatsApp.</p>
-        <a href="https://wa.me/5511968662940?text=Olá!%20Gostaria%20de%20ver%20o%20cardápio%20completo%20do%20Di%20Propósito." 
-           target="_blank" 
-           class="btn btn-whatsapp" 
-           id="cardapio-btn-whats">
-          <i class="fab fa-whatsapp"></i> Ver Cardápio pelo WhatsApp
+        <p>Veja todos os itens, amplie as fotos e monte seu pedido para delivery ou para a mesa.</p>
+        <a href="cardapio.html" class="btn btn-gold" id="cardapio-btn-full">
+          <i class="fa-solid fa-utensils"></i> Ver cardápio completo e pedir
         </a>
       </div>
     </div>
@@ -835,6 +825,7 @@
   </div>
 
   <!-- Custom JavaScript -->
+  <script src="menu-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
