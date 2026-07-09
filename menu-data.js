@@ -96,9 +96,9 @@ const MENU_ITEMS = [
   {
     id: "fraldinha",
     name: "Fraldinha",
-    description: "Espeto de fraldinha selecionada com capa de gordura perfeita, assada lentamente na brasa.",
+    description: "Hambúrguer artesanal de fraldinha suculenta grelhada na brasa, com queijo, salada fresca e maionese da casa no pão brioche.",
     image: "img/Food/optimized/fraldinha-2.jpg",
-    category: "Espetos",
+    category: "Lanches",
     badge: "Premium"
   },
   {
@@ -108,14 +108,6 @@ const MENU_ITEMS = [
     image: "img/Food/optimized/camarao-2.jpg",
     category: "Espetos",
     badge: "Especial"
-  },
-  {
-    id: "espeto-bacon",
-    name: "Espeto de Bacon",
-    description: "Espeto de bacon premium defumado e grelhado na brasa, suculento e cheio de sabor.",
-    image: "img/Food/optimized/bacon-2.jpg",
-    category: "Espetos",
-    badge: ""
   },
   {
     id: "x-bacon",
